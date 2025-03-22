@@ -27,28 +27,28 @@ for i = 1:m
             end
         end
     end
-    eq_str = [eq_str, sprintf(' = %.1f', b(i))];
+    eq_str = [eq_str, sprintf(' = %.1f', B(i))];
     fprintf('Equation %d: %s\n', i, eq_str);
 end
 
 % Check ranks to verify system classification
 rank_A = rank(A);
-rank_Ab = rank([A b]);
+rank_AB = rank([A B]);
 fprintf('\nRank of coefficient matrix: %d\n', rank_A);
-fprintf('Rank of augmented matrix: %d\n', rank_Ab);
+fprintf('Rank of augmented matrix: %d\n', rank_AB);
 
-if rank_A == rank_Ab && rank_A < n
+if rank_A == rank_AB && rank_A < n
     fprintf('\nConfirmed: The system is compatible and undetermined.\n');
     
     % Find a particular solution using pseudoinverse
     fprintf('\nParticular solution using the minimum norm method (pseudoinverse):\n');
-    x_min_norm = pinv(A) * b;
+    x_min_norm = pinv(A) * B;
     for i = 1:n
         fprintf('x%d = %.6f\n', i, x_min_norm(i));
     end
     
     % Check solution
-    residual = norm(A*x_min_norm - b);
+    residual = norm(A*x_min_norm - B);
     fprintf('Residual norm: %.10f\n', residual);
     
     % Calculate null space basis
@@ -119,12 +119,12 @@ if rank_A == rank_Ab && rank_A < n
     fprintf('\n1. Setting x1 = 0:\n');
     reduced_A = A(:,2:end);
     if rank(reduced_A) == rank_A
-        reduced_x = reduced_A \ b;
+        reduced_x = reduced_A \ B;
         x_alt1 = [0; reduced_x];
         for i = 1:n
             fprintf('x%d = %.6f\n', i, x_alt1(i));
         end
-        residual = norm(A*x_alt1 - b);
+        residual = norm(A*x_alt1 - B);
         fprintf('Residual norm: %.10f\n', residual);
     else
         fprintf('Cannot set x1 = 0 as it would make the system incompatible.\n');
@@ -134,12 +134,12 @@ if rank_A == rank_Ab && rank_A < n
     fprintf('\n2. Setting x%d = 0:\n', n);
     reduced_A = A(:,1:n-1);
     if rank(reduced_A) == rank_A
-        reduced_x = reduced_A \ b;
+        reduced_x = reduced_A \ B;
         x_alt2 = [reduced_x; 0];
         for i = 1:n
             fprintf('x%d = %.6f\n', i, x_alt2(i));
         end
-        residual = norm(A*x_alt2 - b);
+        residual = norm(A*x_alt2 - B);
         fprintf('Residual norm: %.10f\n', residual);
     else
         fprintf('Cannot set x%d = 0 as it would make the system incompatible.\n', n);
