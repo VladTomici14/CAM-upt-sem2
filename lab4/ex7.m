@@ -84,26 +84,26 @@ if rank_A == rank_AB && rank_A < n
         end
         
         if n == 2
-            figure;
-            plot(solution_points(:,1), solution_points(:,2), 'b-', 'LineWidth', 2);
-            hold on;
-            plot(x_min_norm(1), x_min_norm(2), 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r');
-            grid on;
-            xlabel('x1');
-            ylabel('x2');
-            title('Solution Space for Undetermined System');
-            legend('Solution Line', 'Minimum Norm Solution');
+            % figure;
+            % plot(solution_points(:,1), solution_points(:,2), 'b-', 'LineWidth', 2);
+            % hold on;
+            % plot(x_min_norm(1), x_min_norm(2), 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r');
+            % grid on;
+            % xlabel('x1');
+            % ylabel('x2');
+            % title('Solution Space for Undetermined System');
+            % legend('Solution Line', 'Minimum Norm Solution');
         elseif n == 3
-            figure;
-            plot3(solution_points(:,1), solution_points(:,2), solution_points(:,3), 'b-', 'LineWidth', 2);
-            hold on;
-            plot3(x_min_norm(1), x_min_norm(2), x_min_norm(3), 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r');
-            grid on;
-            xlabel('x1');
-            ylabel('x2');
-            zlabel('x3');
-            title('Solution Space for Undetermined System');
-            legend('Solution Line', 'Minimum Norm Solution');
+            % figure;
+            % plot3(solution_points(:,1), solution_points(:,2), solution_points(:,3), 'b-', 'LineWidth', 2);
+            % hold on;
+            % plot3(x_min_norm(1), x_min_norm(2), x_min_norm(3), 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r');
+            % grid on;
+            % xlabel('x1');
+            % ylabel('x2');
+            % zlabel('x3');
+            % title('Solution Space for Undetermined System');
+            % legend('Solution Line', 'Minimum Norm Solution');
         end
     elseif n <= 3 && size(Z,2) == 2
         fprintf('\nThe solution space is a plane in 3D space.\n');

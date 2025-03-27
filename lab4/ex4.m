@@ -22,19 +22,19 @@ if rank_A == rank_AB
         x_particular = pinv(A) * B; 
 
         % displaying the particular solution
-        fprintf("x = %.f\n", x_particular(1));
-        fprintf("y = %.f\n", x_particular(2));
-        fprintf("z = %.f\n", x_particular(3));
+        fprintf("x = %.4f\n", x_particular(1));
+        fprintf("y = %.4f\n", x_particular(2));
+        fprintf("z = %.4f\n", x_particular(3));
 
         % expressing the general solution
         fprintf("General solution can be expressed as:\n");
         Z = null(A);
 
         if ~isempty(Z)
-            fprintf('x = %.4f + %.4f*t\n', x_particular(1), Z(1));
-            fprintf('y = %.4f + %.4f*t\n', x_particular(2), Z(2));
-            fprintf('z = %.4f + %.4f*t\n', x_particular(3), Z(3));
-            fprintf('where t is any real number\n');
+            fprintf("x = %.4f + %.4f*t\n", x_particular(1), Z(1));
+            fprintf("y = %.4f + %.4f*t\n", x_particular(2), Z(2));
+            fprintf("z = %.4f + %.4f*t\n", x_particular(3), Z(3));
+            fprintf("where t is any real number\n");
         end
     else
         fprintf("The system has an unique solutions!\n");
@@ -43,9 +43,9 @@ if rank_A == rank_AB
         x = A \ B; 
         
         % displaying the unique solution 
-        fprintf('x = %.4f\n', x(1));
-        fprintf('y = %.4f\n', x(2));
-        fprintf('z = %.4f\n', x(3));
+        fprintf("\tx = %.4f\n", x(1));
+        fprintf("\ty = %.4f\n", x(2));
+        fprintf("\tz = %.4f\n", x(3));
 
     end
 else

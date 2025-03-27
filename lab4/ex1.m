@@ -20,9 +20,9 @@ if rank_A == rank_AB
         x = A \ B; 
 
         % displaying the solutions
-        fprintf("x = %.f\n", x(1));
-        fprintf("y = %.f\n", x(2));
-        fprintf("z = %.f\n", x(3));
+        fprintf("\tx = %.4f\n", x(1));
+        fprintf("\ty = %.4f\n", x(2));
+        fprintf("\tz = %.4f\n", x(3));
     end
 else
     fprintf("The system is incompatible with no solutions!");
