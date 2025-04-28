@@ -61,7 +61,7 @@ p4 = p(4);
 fprintf('p(2) = %.6f\n', p2);
 fprintf('p(4) = %.6f\n', p4);
 
-% ----- trying to solve only if a sign change occurs -----
+% ----- trying to solve only if a sign change occurs
 if sign(p2) ~= sign(p4)
     x_d = fzero(p, [2, 4]);
     fprintf('Solution for (d): x = %.6f\n', x_d);
